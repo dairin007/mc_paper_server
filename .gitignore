@@ -1,0 +1,47 @@
+# port
+.env
+
+# minecraft data directry
+# cache data
+data/cache/
+# log data
+data/logs/
+# lib data
+data/libraries/
+# version data
+data/versions/
+# world data
+data/world/
+data/world_the_end/
+data/world_nether/
+# plugin jar
+data/plugins/*.jar
+# minecraft server jar
+data/paper*.jar
+# plugin pem file
+data/plugins/floodgate/key.pem
+# discord srv setting (include token)
+data/plugins/DiscordSRV/
+# version history
+data/version_history.json
+# user cache
+data/usercache.json
+# skin data
+data/plugins/GeyserSkinManager/users/
+# bedrock plugin data
+data/plugins/Geyser-Spigot/locales/
+# coreprotect data
+data/plugins/CoreProtect/.license
+data/plugins/CoreProtect/database.*
+data/plugins/CoreProtect/language.yml
+# white list
+data/whitelist.json
+
+# other file
+data/banned-ips.json
+data/banned-players.json
+data/eula.txt
+data/help.yml
+data/permissions.yml
+# backup data
+mc-backups/

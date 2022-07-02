@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  # Application
+  production_minecraft_server:
+    image: itzg/minecraft-server@sha256:7d829a284b3b3e226e8ffceaf70665966ff130ef869a058b102eb761f3868dbb
+    ports:
+      - ${TCP_PORT}:25565
+      - ${UDP_PORT}:19132/udp
+      - ${MRTRICS_PORT}:9941
+    environment:
+      EULA: "TRUE"
+      TYPE: paper
+      VERSION: 1.19
+      TZ: Asia/Tokyo
+    env_file:
+      - ./.env
+      - ./docker.env
+    volumes:
+      - ./data:/data
+      - /etc/timezone:/etc/timezone:ro
+
+  # Backup
+  production_minecraft_backup:
+    image: itzg/mc-backup@sha256:970d1013a8977bce71003b588083c68510bb2c8ffdcff74fce5da5a4faf86012
+    depends_on:
+      - production_minecraft_server
+    environment:
+      - RCON_HOST=production_minecraft_server
+      - BACKUP_INTERVAL=12h
+      - PRUNE_BACKUPS_DAYS=2d
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./data:/data:ro
+      - ./mc-backups:/backups
+      - /etc/timezone:/etc/timezone:ro

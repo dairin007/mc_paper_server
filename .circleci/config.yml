@@ -1,0 +1,29 @@
+version: 2
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:current
+      resource_class: arm.medium
+    steps:
+      - checkout
+      - run:
+          name: install python packages
+          command: |
+            python3 --version
+            pip3 install mcstatus
+      - run:
+          name: make env file
+          command: |
+            echo TCP_PORT=${TCP_PORT} > .env
+            echo UDP_PORT=${UDP_PORT} >> .env
+            echo MRTRICS_PORT=${MRTRICS_PORT} >> .env
+      - run:
+          name: start test
+          command: bash test/starttest.sh
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build

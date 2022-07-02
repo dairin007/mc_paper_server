@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  # Application
+  production_minecraft_server:
+    environment:
+      MEMORY: "7G"
+      WORLD: world
+    restart: always
+    tty: true
+    stdin_open: true
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+    logging:
+      driver: loki
+      options:
+        mode: non-blocking
+        loki-url: http://localhost:3100/api/prom/push
+        loki-batch-size: "400"
+        loki-retries: "2"
+        loki-timeout: "1s"
+        keep-file: "true"
+        max-size: "5g"
+    networks:
+      - docker_network
+  # Backup
+  production_minecraft_backup:
+    restart: always
+    logging:
+      driver: loki
+      options:
+        mode: non-blocking
+        loki-url: http://localhost:3100/api/prom/push
+        loki-batch-size: "400"
+        loki-retries: "2"
+        loki-timeout: "1s"
+        keep-file: "true"
+        max-size: "5g"
+    networks:
+      - docker_network
+
+networks:
+  docker_network:
+    external: true
