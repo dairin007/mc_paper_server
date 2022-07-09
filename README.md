@@ -4,9 +4,13 @@ This project is in reference to sksat minecraft [repository](https://github.com/
 
 - my minecraft paper server
 
-# 更新手順
-1. itgzのイメージのsha256を更新(docker-compose.yaml内,testも)
-2. paperで動かすversionを更新(docker-compose.yaml内,testも)
+crontab で scripts/download_pligin.sh を定期実行させる
 
-# pluginの更新
-1. download_plugin.shのバージョンの更新
+# 更新手順
+
+1. itgz のイメージの sha256 を更新(docker-compose.yaml 内,test も)
+2. paper で動かす version を更新(docker-compose.yaml 内,test も)
+
+# plugin の更新
+
+1. download_plugin.sh のバージョンの更新
