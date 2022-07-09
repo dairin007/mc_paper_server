@@ -66,8 +66,8 @@ function download_plugin(){
 }
 
 echo "goto data/plugins"
-
 cd ./data/plugins
+pwd
 
 for item in "${PLUGINS[@]}"; do
   set -- $item
