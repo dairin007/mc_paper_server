@@ -5,11 +5,9 @@ MINECRAFT_VERSION=1.19
 mkdir -p data
 
 echo "download plugin"
-bash ./download_plugin.sh
+bash ./scripts/download_plugin.sh
 
 echo "start server"
-
-# TODO: download plugin
 
 docker-compose up -d
 sleep 20

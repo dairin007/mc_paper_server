@@ -66,7 +66,9 @@ function download_plugin(){
 }
 
 echo "goto data/plugins"
-cd data/plugins
+cd ./data/plugins
+pwd
+
 for item in "${PLUGINS[@]}"; do
   set -- $item
   ORG=$1
@@ -85,5 +87,5 @@ for item in "${PLUGINS[@]}"; do
   fi
 done
 
-cd ..
+cd ../../
 echo "exit data/plugins"
