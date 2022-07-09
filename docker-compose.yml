@@ -22,7 +22,7 @@ services:
 
   # Backup
   production_minecraft_backup:
-    image: itzg/mc-backup@sha256:970d1013a8977bce71003b588083c68510bb2c8ffdcff74fce5da5a4faf86012
+    image: itzg/mc-backup@sha256:e7594f3d94352515a1eb47932e0d6b425cce8af43587d9f61daa55499f51256c
     depends_on:
       - production_minecraft_server
     environment:
