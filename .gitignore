@@ -45,3 +45,4 @@ data/help.yml
 data/permissions.yml
 # backup data
 mc-backups/
+node_modules
