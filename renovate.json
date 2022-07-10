@@ -1,9 +1,9 @@
 {
-  "baseBranches": ["feature/plugin_renovate"],
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base", ":timezone(Asia/Tokyo)"
   ],
+  "baseBranches": ["feature/plugin_renovate"],
   "regexManagers": [
     {
       "fileMatch": ["scripts/download_plugin.sh"],
