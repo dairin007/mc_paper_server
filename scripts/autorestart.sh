@@ -56,11 +56,21 @@ if [[ $(echo $?) -ne 0 ]]; then
     exit 1
 fi
 
-log "socker-compose start"
+log "git pull latest code"
+result="$(git fetch origin master&& git reset --hard origin/master)"
+
+log "docker-compose start"
 result="$(bash ./start_prod.sh)"
 if [[ $(echo $?) -ne 0 ]]; then
     log "docker-compose up -d 失敗" "$result"
-    exit 1
+    reset="$(git reset --hard HEAD@{1})"
+    echo "git reset ${reset}"
+    log "docker-compose re-start"
+    result="$(bash ./start_prod.sh)"
+    if [[ $(echo $?) -ne 0 ]]; then
+        log "server restart 失敗" "$result"
+        exit 1
+    fi
 fi
 
 log "end"
