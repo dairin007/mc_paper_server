@@ -7,7 +7,7 @@
     {
       "fileMatch": ["scripts/download_plugin.sh"],
       "matchStrings": [
-        "\"(?<Orgname>.*?) (?<depName>.*?) (?<currentValue>.*?) (?<datasource>.*?) .*?\"\n"
+        "\"(?<depName>.*?) (?<currentValue>.*?) (?<datasource>.*?) .*? .*? .*?\"\n"
       ],
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     }
