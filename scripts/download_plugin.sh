@@ -58,9 +58,9 @@ function download_plugin(){
 
   wget -qO "$LOCAL_FILE_NAME" "$URL"
   if [ $? -eq 0 ]; then
-    echo "  SUCCESS : ${ORG}/${REPO} is downloaded as ${LOCAL_FILE_NAME}"
+    echo "SUCCESS:downloaded as ${LOCAL_FILE_NAME}"
   else
-    echo "  FAILED : ${ORG}/${REPO} is download faild. (URL is ${URL})"
+    echo "FAILED:${ORG}/${REPO} is faild."
     exit 1
   fi
 }
