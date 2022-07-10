@@ -1,16 +1,16 @@
 #!/bin/bash
 set -e
 
-# Plugin Tuple
-# "plugin_org/plugin_repo plugin_version source name_prefix version_prefix opencollab_prefix"
+# plugin_org/plugin_repo plugin_version source name_prefix version_prefix opencollab_prefix
+# opencollab's release is kasu
 PLUGINS=(
-  "PlayPro/CoreProtect v21.2 github-releases CoreProtect- no_v"
-  "DiscordSRV/DiscordSRV v1.25.1 github-releases DiscordSRV-Build- no_v"
-  "Camotoy/GeyserSkinManager 1.6 github-releases GeyserSkinManager-Spigot no_version"
-  "sladkoff/minecraft-prometheus-exporter v2.5.0 github-releases minecraft-prometheus-exporter- no_v"
-  "ViaVersion/ViaBackwards 4.3.0 github-releases ViaBackwards- none"
-  "ViaVersion/ViaVersion 4.3.1 github-releases ViaVersion- none"
-  "GeyserMC/Floodgate 70 opencollab floodgate-spigot no_version spigot/build/libs" # opencollab's versionning is kasu
+  "PlayPro/CoreProtect v21.2 github-releases CoreProtect- no_v none"
+  "DiscordSRV/DiscordSRV v1.25.1 github-releases DiscordSRV-Build- no_v none"
+  "Camotoy/GeyserSkinManager 1.6 github-releases GeyserSkinManager-Spigot no_version none"
+  "sladkoff/minecraft-prometheus-exporter v2.5.0 github-releases minecraft-prometheus-exporter- no_v none"
+  "ViaVersion/ViaBackwards 4.3.0 github-releases ViaBackwards- none none"
+  "ViaVersion/ViaVersion 4.3.1 github-releases ViaVersion- none none"
+  "GeyserMC/Floodgate 70 opencollab floodgate-spigot no_version spigot/build/libs"
   "GeyserMC/Geyser 1133 opencollab Geyser-Spigot no_version bootstrap/spigot/target"
 )
 
