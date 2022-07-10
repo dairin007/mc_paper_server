@@ -4,12 +4,12 @@ set -e
 # Plugin Tuple
 # "plugin_org plugin_repo plugin_version source name_prefix version_prefix opencollab_prefix"
 PLUGINS=(
-  "PlayPro CoreProtect v21.2 github CoreProtect- no_v"
-  "DiscordSRV DiscordSRV v1.25.1 github DiscordSRV-Build- no_v"
-  "Camotoy GeyserSkinManager 1.6 github GeyserSkinManager-Spigot no_version"
-  "sladkoff minecraft-prometheus-exporter v2.5.0 github minecraft-prometheus-exporter- no_v"
-  "ViaVersion ViaBackwards 4.3.0 github ViaBackwards- none"
-  "ViaVersion ViaVersion 4.3.1 github ViaVersion- none"
+  "PlayPro CoreProtect v21.2 github-releases CoreProtect- no_v"
+  "DiscordSRV DiscordSRV v1.25.1 github-releases DiscordSRV-Build- no_v"
+  "Camotoy GeyserSkinManager 1.6 github-releases GeyserSkinManager-Spigot no_version"
+  "sladkoff minecraft-prometheus-exporter v2.5.0 github-releases minecraft-prometheus-exporter- no_v"
+  "ViaVersion ViaBackwards 4.3.0 github-releases ViaBackwards- none"
+  "ViaVersion ViaVersion 4.3.1 github-releases ViaVersion- none"
   "GeyserMC Floodgate 70 opencollab floodgate-spigot no_version spigot/build/libs" # opencollab's versionning is kasu
   "GeyserMC Geyser 1133 opencollab Geyser-Spigot no_version bootstrap/spigot/target"
 )
@@ -28,7 +28,7 @@ function verify_version_prefix(){
 function download_plugin(){
   verify_version_prefix "$FILE_VERSION_PREFIX"
 
-  if [ "${SOURCE}" == "github" ]; then
+  if [ "${SOURCE}" == "github-releases" ]; then
     if [ "${FILE_VERSION_PREFIX}" == "no_v" ]; then
       FILE_VER=${VERSION#v}
       FILE_NAME=${FILE_NAME_PREFIX}${FILE_VER}
