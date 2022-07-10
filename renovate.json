@@ -1,6 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base", ":timezone(Asia/Tokyo)"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["scripts/download_plugin.sh"],
+      "matchStrings": [
+        "\"(?<depName>.*?) (?<currentValue>.*?) (?<datasource>.*?) .*? .*? .*?\"\n"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
+    }
   ]
 }

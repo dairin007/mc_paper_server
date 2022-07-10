@@ -47,3 +47,4 @@ data/permissions.yml
 mc-backups/
 
 scripts/reboot_log
+node_modules
