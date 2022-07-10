@@ -45,3 +45,5 @@ data/help.yml
 data/permissions.yml
 # backup data
 mc-backups/
+
+scripts/reboot_log

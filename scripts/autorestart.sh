@@ -2,8 +2,7 @@
 
 export PATH=/usr/local/bin:$PATH
 
-
-# ログ関数
+# log func
 function log() {
    LOG=$LOG_PATH/$LOG_NAME
    time=$(date '+%Y/%m/%d %T')
@@ -13,16 +12,17 @@ function log() {
    fi
 }
 
-cd /home/ubuntu/docker/mc-server
+cd /home/ubuntu/docker/mc_server
 
 WAIT=120
-LOG_PATH="/home/ubuntu/scripts/reboot_log"
+LOG_PATH="/home/ubuntu/docker/mc_server/scripts/reboot_log"
 LOG_NAME="$(basename $0 | sed -e 's/.sh//g').log"
 
-log "処理開始"
+echo "--------------------------------------------------------------------"
+log "start"
 
 log "rcon-cli say The server will reboot ${WAIT} seconds"
-result="$(docker-compose exec -T production_minecraft_server rcon-cli "say The server will reboot ${WAIT} seconds")"
+result="$(docker-compose exec -T production_minecraft_server rcon-cli "say test")"
 if [[ $(echo $?) -ne 0 ]]; then
     log "say command 失敗" "$result"
     exit 1
@@ -63,6 +63,7 @@ if [[ $(echo $?) -ne 0 ]]; then
     exit 1
 fi
 
-log "処理終了"
+log "end"
+echo "--------------------------------------------------------------------"
 
 exit 0
