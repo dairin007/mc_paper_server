@@ -3,7 +3,7 @@ version: "3"
 services:
   # Application
   production_minecraft_server:
-    image: itzg/minecraft-server@sha256:48e0f1bc4d78791a2c4706383188ecd2d40a262a0ed925a17fc5a35e9588b986
+    image: itzg/minecraft-server@sha256:03b9d5e3e8111bde3f02e31326cc086b89ec0732b137cece55b7fec6a8a9e920
     ports:
       - ${TCP_PORT}:25565
       - ${UDP_PORT}:19132/udp
