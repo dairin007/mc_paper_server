@@ -11,7 +11,7 @@ PLUGINS=(
   "ViaVersion/ViaBackwards 4.3.1 github-releases ViaBackwards- none none"
   "ViaVersion/ViaVersion 4.3.1 github-releases ViaVersion- none none"
   "GeyserMC/Floodgate 70 opencollab floodgate-spigot no_version spigot/build/libs"
-  "GeyserMC/Geyser 1133 opencollab Geyser-Spigot no_version bootstrap/spigot/target"
+  "GeyserMC/Geyser 1147 opencollab Geyser-Spigot no_version bootstrap/spigot/target"
 )
 
 function verify_version_prefix(){
