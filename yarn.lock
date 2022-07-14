@@ -3915,6 +3915,11 @@ pluralize@^7.0.0:
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
   integrity sha512-ARhBOdzS3e41FbkW/XWrTEtukqqLoK5+Z/4UeDaLuSW+39JPeFgs4gCGqsrJHVZX0fUrx//4OF0K1CUGwlIFow==
 
+prettier@2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
+  integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
+
 pretty-bytes@^5.1.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.6.0.tgz#356256f643804773c82f64723fe78c92c62beaeb"
@@ -4124,10 +4129,10 @@ remark@13.0.0:
     remark-stringify "^9.0.0"
     unified "^9.1.0"
 
-renovate@32.111.2:
-  version "32.111.2"
-  resolved "https://registry.yarnpkg.com/renovate/-/renovate-32.111.2.tgz#144581e5d29136b3d40c6c6f49617dbf6e8f0f44"
-  integrity sha512-wywl5CaH4kQA4IwVG+EURT7nu1zRXSInhK2RfjQQC2och8BXxilsb91nIN8c7R/tHvRkn3BxIp8U2mPWuG9vOQ==
+renovate@32.114.0:
+  version "32.114.0"
+  resolved "https://registry.yarnpkg.com/renovate/-/renovate-32.114.0.tgz#53e5de9131fa1379a1caa1fdbcfb8288d06a6480"
+  integrity sha512-iFel9K4Ofn8ch4i6bxanboHXy0HWjbZEI2sjRqvDBkOFdroNGZld1jBwkFlhrGYEyDZz4DuGOex4F0FrhbV+Dw==
   dependencies:
     "@aws-sdk/client-ec2" "3.112.0"
     "@aws-sdk/client-ecr" "3.112.0"
@@ -4193,6 +4198,7 @@ renovate@32.111.2:
     p-map "4.0.0"
     p-queue "6.6.2"
     parse-link-header "2.0.0"
+    prettier "2.7.1"
     redis "4.2.0"
     remark "13.0.0"
     remark-github "10.1.0"
