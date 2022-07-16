@@ -25,30 +25,7 @@ function verify_version_prefix(){
   exit 1
 }
 
-function download_plugin(){
-  verify_version_prefix "$FILE_VERSION_PREFIX"
-
-  if [ "${SOURCE}" == "github-releases" ]; then
-    if [ "${FILE_VERSION_PREFIX}" == "no_v" ]; then
-      FILE_VER=${VERSION#v}
-      FILE_NAME=${FILE_NAME_PREFIX}${FILE_VER}
-    elif [ "${FILE_VERSION_PREFIX}" == "no_version" ]; then
-       FILE_NAME=${FILE_NAME_PREFIX}
-    elif [ "${FILE_VERSION_PREFIX}" == "none" ]; then
-      FILE_NAME=${FILE_NAME_PREFIX}${VERSION}
-    fi
-    URL="https://github.com/${ORG}/${REPO}/releases/download/${VERSION}/${FILE_NAME}.jar"
-
-  elif [ "${SOURCE}" == "opencollab" ]; then
-      if [ "${FILE_VERSION_PREFIX}" == "no_version" ]; then
-        FILE_NAME=${FILE_NAME_PREFIX}
-      else
-        echo "not impl, please implement"
-        exit 1
-      fi
-      URL="https://ci.opencollab.dev/job/${ORG}/job/${REPO}/job/master/${VERSION}/artifact/${OPENCOLLAB_PREFIX}/${FILE_NAME}.jar"
-  fi
-
+function download(){
   echo "${ORG}/${REPO} URL:${URL}"
 
   # make file name
@@ -62,6 +39,39 @@ function download_plugin(){
   else
     echo "FAILED:${ORG}/${REPO} is faild."
     exit 1
+  fi
+}
+
+function download_plugin(){
+  verify_version_prefix "$FILE_VERSION_PREFIX"
+
+  if [ "${SOURCE}" == "github-releases" ]; then
+    if [ "${FILE_VERSION_PREFIX}" == "no_v" ]; then
+      FILE_VER=${VERSION#v}
+      FILE_NAME=${FILE_NAME_PREFIX}${FILE_VER}
+    elif [ "${FILE_VERSION_PREFIX}" == "no_version" ]; then
+       FILE_NAME=${FILE_NAME_PREFIX}
+    elif [ "${FILE_VERSION_PREFIX}" == "none" ]; then
+      FILE_NAME=${FILE_NAME_PREFIX}${VERSION}
+    fi
+    URL="https://github.com/${ORG}/${REPO}/releases/download/${VERSION}/${FILE_NAME}.jar"
+    download()
+
+  elif [ "${SOURCE}" == "opencollab" ]; then
+      if [ "${FILE_VERSION_PREFIX}" == "no_version" ]; then
+        FILE_NAME=${FILE_NAME_PREFIX}
+      else
+        echo "not impl, please implement"
+        exit 1
+      fi
+      URL="https://ci.opencollab.dev/job/${ORG}/job/${REPO}/job/master/lastSuccessfulBuild/artifact/${OPENCOLLAB_PREFIX}/${FILE_NAME}.jar"
+      download()
+    if [ ! $? -eq 0 ]; then
+      echo "FAILED: lastSuccess ${ORG}/${REPO} from openlab ."
+      echo "retry fixed version"
+      URL="https://ci.opencollab.dev/job/${ORG}/job/${REPO}/job/master/${VERSION}/artifact/${OPENCOLLAB_PREFIX}/${FILE_NAME}.jar"
+      download()
+    fi
   fi
 }
 
@@ -82,7 +92,7 @@ for item in "${PLUGINS[@]}"; do
   REPO=${ORG_REPO#*/}
   echo "---------------------------------------------------------------"
   echo "org_repo=$ORG_REPO, org=$ORG, repo=$REPO, ver=$VERSION, source=$SOURCE"
-  # download_plugin
+  download_plugin()
   if [ ! $? -eq 0 ]; then
     echo "download failed"
     exit 1
