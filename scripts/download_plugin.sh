@@ -57,14 +57,29 @@ function download_plugin(){
     URL="https://github.com/${ORG}/${REPO}/releases/download/${VERSION}/${FILE_NAME}.jar"
     download
   elif [ "${SOURCE}" == "opencollab" ]; then
-      if [ "${FILE_VERSION_PREFIX}" == "no_version" ]; then
-        FILE_NAME=${FILE_NAME_PREFIX}
-      else
-        echo "not impl, please implement"
-        exit 1
-      fi
-      URL="https://ci.opencollab.dev/job/${ORG}/job/${REPO}/job/master/lastSuccessfulBuild/artifact/${OPENCOLLAB_PREFIX}/${FILE_NAME}.jar"
-      download
+    if [ "${FILE_VERSION_PREFIX}" == "no_version" ]; then
+      FILE_NAME=${FILE_NAME_PREFIX}
+    else
+      echo "not impl, please implement"
+      exit 1
+    fi
+    URL="https://ci.opencollab.dev/job/${ORG}/job/${REPO}/job/master/lastSuccessfulBuild/artifact/${OPENCOLLAB_PREFIX}/${FILE_NAME}.jar"
+
+
+    echo "${ORG}/${REPO} URL:${URL}"
+    # make file name
+    DAY=`date '+%F'`
+    LOCAL_FILE_NAME=${FILE_NAME_PREFIX%-}-latestbuild_${DAY}.jar
+    rm -rf "${FILE_NAME_PREFIX%-}"*.jar
+    wget -qO "$LOCAL_FILE_NAME" "$URL"
+    if [ $? -eq 0 ]; then
+      echo "SUCCESS:downloaded as ${LOCAL_FILE_NAME}"
+    else
+      echo "FAILED:${ORG}/${REPO} is faild."
+      exit 1
+    fi
+
+
     if [ ! $? -eq 0 ]; then
       echo "FAILED: lastSuccess ${ORG}/${REPO} from openlab."
       echo "retry fixed version"
