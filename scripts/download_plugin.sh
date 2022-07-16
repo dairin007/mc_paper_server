@@ -50,13 +50,12 @@ function download_plugin(){
       FILE_VER=${VERSION#v}
       FILE_NAME=${FILE_NAME_PREFIX}${FILE_VER}
     elif [ "${FILE_VERSION_PREFIX}" == "no_version" ]; then
-       FILE_NAME=${FILE_NAME_PREFIX}
+      FILE_NAME=${FILE_NAME_PREFIX}
     elif [ "${FILE_VERSION_PREFIX}" == "none" ]; then
       FILE_NAME=${FILE_NAME_PREFIX}${VERSION}
     fi
     URL="https://github.com/${ORG}/${REPO}/releases/download/${VERSION}/${FILE_NAME}.jar"
     download()
-
   elif [ "${SOURCE}" == "opencollab" ]; then
       if [ "${FILE_VERSION_PREFIX}" == "no_version" ]; then
         FILE_NAME=${FILE_NAME_PREFIX}
@@ -67,7 +66,7 @@ function download_plugin(){
       URL="https://ci.opencollab.dev/job/${ORG}/job/${REPO}/job/master/lastSuccessfulBuild/artifact/${OPENCOLLAB_PREFIX}/${FILE_NAME}.jar"
       download()
     if [ ! $? -eq 0 ]; then
-      echo "FAILED: lastSuccess ${ORG}/${REPO} from openlab ."
+      echo "FAILED: lastSuccess ${ORG}/${REPO} from openlab."
       echo "retry fixed version"
       URL="https://ci.opencollab.dev/job/${ORG}/job/${REPO}/job/master/${VERSION}/artifact/${OPENCOLLAB_PREFIX}/${FILE_NAME}.jar"
       download()
