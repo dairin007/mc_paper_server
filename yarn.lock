@@ -2154,10 +2154,10 @@ deprecation@^2.0.0, deprecation@^2.3.1:
   resolved "https://registry.yarnpkg.com/deprecation/-/deprecation-2.3.1.tgz#6368cbdb40abf3373b525ac87e4a260c3a700919"
   integrity sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==
 
-dequal@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.2.tgz#85ca22025e3a87e65ef75a7a437b35284a7e319d"
-  integrity sha512-q9K8BlJVxK7hQYqa6XISGmBZbtQQWVXSrRrWreHC94rMt1QL/Impruc+7p2CYSYuVIUr+YCt6hjrs1kkdJRTug==
+dequal@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
+  integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
 detect-indent@6.1.0, detect-indent@^6.0.0:
   version "6.1.0"
@@ -4129,10 +4129,10 @@ remark@13.0.0:
     remark-stringify "^9.0.0"
     unified "^9.1.0"
 
-renovate@32.118.0:
-  version "32.118.0"
-  resolved "https://registry.yarnpkg.com/renovate/-/renovate-32.118.0.tgz#05faca09f0aaf4fa3a65613af59d1c665507eae6"
-  integrity sha512-LDI0/AigSDN6Ej5ljhgwlSIMBmjS47PmhMvQJRi3WF843qLTDB+UpmpTydYLrBfpD0UR5yslQft0RKqzzo9BTw==
+renovate@32.119.2:
+  version "32.119.2"
+  resolved "https://registry.yarnpkg.com/renovate/-/renovate-32.119.2.tgz#7ca8a8b8962c43e487192b132a14f5c3cb17c69a"
+  integrity sha512-R7eLVkkErHvpR96bwBelNM2XgBcNYaVTzi2xgvWJOslTkc3VDWShL+6VBV93+ohzw0TSdnWuggZmBOl+1IMixA==
   dependencies:
     "@aws-sdk/client-ec2" "3.112.0"
     "@aws-sdk/client-ecr" "3.112.0"
@@ -4159,7 +4159,7 @@ renovate@32.118.0:
     crypto-random-string "3.3.1"
     deepmerge "4.2.2"
     delay "5.0.0"
-    dequal "2.0.2"
+    dequal "2.0.3"
     detect-indent "6.1.0"
     editorconfig "0.15.3"
     email-addresses "5.0.0"
