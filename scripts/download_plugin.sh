@@ -9,7 +9,7 @@ PLUGINS=(
   "Camotoy/GeyserSkinManager 1.6 github-releases GeyserSkinManager-Spigot no_version none"
   "sladkoff/minecraft-prometheus-exporter v2.5.0 github-releases minecraft-prometheus-exporter- no_v none"
   "ViaVersion/ViaBackwards 4.4.0 github-releases ViaBackwards- none none"
-  "ViaVersion/ViaVersion 4.3.1 github-releases ViaVersion- none none"
+  "ViaVersion/ViaVersion 4.4.0 github-releases ViaVersion- none none"
   "GeyserMC/Floodgate 70 opencollab floodgate-spigot no_version spigot/build/libs"
   "GeyserMC/Geyser 1148 opencollab Geyser-Spigot no_version bootstrap/spigot/target"
 )
