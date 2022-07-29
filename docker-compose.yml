@@ -28,7 +28,8 @@ services:
     environment:
       - RCON_HOST=production_minecraft_server
       - BACKUP_INTERVAL=23h
-      - PRUNE_BACKUPS_DAYS=3d
+      - PRUNE_BACKUPS_DAYS=2d
+      - PRUNE_RESTIC_RETENTION=2d
       - TZ=Asia/Tokyo
     volumes:
       - ./data:/data:ro
